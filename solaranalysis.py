@@ -39,8 +39,8 @@ def load_data(file):
 gen_data = load_data(uploaded_gen)
 weather_data = load_data(uploaded_weather)
 
-default_gen_data = pd.read_csv('Plant_1_Generation_Data.csv')
-default_weather_data = pd.read_csv('Plant_1_Weather_Sensor_Data.csv')
+default_gen_data = pd.read_csv('https://github.com/Sivatech24/Streamlit/blob/604e225828bb07cc3bfe6e9040b29e949dc1e73a/Plant_1_Generation_Data.csv')
+default_weather_data = pd.read_csv('https://github.com/Sivatech24/Streamlit/blob/604e225828bb07cc3bfe6e9040b29e949dc1e73a/Plant_1_Weather_Sensor_Data.csv')
 
 if gen_data is None:
     gen_data = default_gen_data
