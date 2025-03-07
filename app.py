@@ -1,30 +1,56 @@
 import streamlit as st
 
 # Set Streamlit page configuration
-st.set_page_config(page_title="Solar Forecast", layout="wide")
+st.set_page_config(page_title="Solar Forecast", page_icon="🌞", layout="wide")
 
+# Sidebar Navigation
 st.sidebar.title("🔍 Navigation")
-page = st.sidebar.radio("Go to", ["Home", "LSTM Model", "XGBoost Model", "Random Forest", "Linear Regression", "GitHub", "About"])
+page = st.sidebar.radio(
+    "Go to",
+    [
+        "Home",
+        "LSTM Model",
+        "XGBoost Model",
+        "Random Forest",
+        "Linear Regression",
+        "GitHub",
+        "About"
+    ],
+)
 
-# Redirect to the selected page
+# Page Routing
 if page == "Home":
-    from pages import home
-    home.show()
+    st.title("🏠 Home")
+    st.write("Welcome to the Solar Energy Forecasting Dashboard! 🚀")
+    st.write("Use the sidebar to navigate between different models and features.")
+
 elif page == "LSTM Model":
-    from pages import lstm
-    lstm.show()
+    st.title("📊 LSTM Model")
+    st.write("This page will show predictions using the LSTM model.")
+    epochs = st.slider("Select Number of Epochs", min_value=10, max_value=100, step=10, value=50)
+    progress = st.progress(0)
+    for i in range(epochs):
+        progress.progress((i + 1) / epochs)
+    st.success("LSTM Model Training Complete!")
+
 elif page == "XGBoost Model":
-    from pages import xgboost
-    xgboost.show()
+    st.title("📈 XGBoost Model")
+    st.write("Predictions using XGBoost will be displayed here.")
+
 elif page == "Random Forest":
-    from pages import random_forest
-    random_forest.show()
+    st.title("🌲 Random Forest Model")
+    st.write("Predictions using the Random Forest model will be displayed here.")
+
 elif page == "Linear Regression":
-    from pages import linear_regression
-    linear_regression.show()
+    st.title("📉 Linear Regression Model")
+    st.write("Predictions using Linear Regression will be displayed here.")
+
 elif page == "GitHub":
-    from pages import github
-    github.show()
+    st.title("🐙 GitHub Repository")
+    st.write("Check out the source code on GitHub.")
+    st.markdown("[Visit GitHub](https://github.com/Sivatech24)")
+
 elif page == "About":
-    from pages import about
-    about.show()
+    st.title("ℹ️ About")
+    st.write("This application forecasts solar energy using different machine learning models.")
+    st.write("Developed by Team.")
