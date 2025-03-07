@@ -8,3 +8,4 @@ streamlit
 pmdarima
 cython
 scipy
+xgboost
