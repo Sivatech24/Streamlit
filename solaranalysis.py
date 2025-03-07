@@ -13,7 +13,7 @@ from sklearn.metrics import confusion_matrix
 import matplotlib.dates as mdates
 from pandas.tseries.offsets import DateOffset
 import streamlit as st
-from pmdarima.arima import auto_arima
+# from pmdarima.arima import auto_arima
 from statsmodels.tsa.stattools import adfuller
 warnings.filterwarnings('ignore')
 
